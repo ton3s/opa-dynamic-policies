@@ -2,9 +2,9 @@ package main_test
 
 import data.main
 
-test_compute_denies {
+test_compute_allow {
     main.decision == {
-        "allow": false,
-        "reason": "denied by compute.policy1 | denied by compute.policy2"
-    } with input.team as "team1"
+        "allow": true,
+        "reason": ""
+    } with input as {"resource": "compute"}
 }
