@@ -1,5 +1,5 @@
 package policies.compute.policy2
 
-deny[msg] {
+allow[msg] {
     msg = "allowed by compute.policy2"
 }
