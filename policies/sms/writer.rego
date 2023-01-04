@@ -3,12 +3,14 @@ import future.keywords
 
 allowed_roles := ["fortress"]
 privileges := [
+  { "resource": "sms", "action": "get" },
   { "resource": "sms", "action": "post" }
 ]
 
-allow {
+allow[msg] {
   is_authenticated
   is_authorized
+  msg = "allowed by sms.writer"
 }
 
 is_authenticated {
@@ -21,10 +23,5 @@ is_authorized {
   some privilege in privileges
   lower(privilege.resource) == lower(input.resource)
   lower(privilege.action) == lower(input.action)
-}
-
-deny[msg] {
-    not allow
-    msg = "denied by sms.writer"
 }
 

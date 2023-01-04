@@ -6,9 +6,10 @@ privileges := [
   { "resource": "sms", "action": "get" }
 ]
 
-allow {
+allow[msg] {
   is_authenticated
   is_authorized
+  msg = "allowed by sms.reader"
 }
 
 is_authenticated {
@@ -22,9 +23,3 @@ is_authorized {
   lower(privilege.resource) == lower(input.resource)
   lower(privilege.action) == lower(input.action)
 }
-
-deny[msg] {
-    not allow
-    msg = "denied by sms.reader"
-}
-
