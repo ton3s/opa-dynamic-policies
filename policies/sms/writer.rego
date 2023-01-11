@@ -7,9 +7,8 @@ privileges := [
   { "resource": "sms", "action": "post" }
 ]
 
-allow[msg] {
+allow["allowed by policies.sms.writer"] {
   util.is_authenticated(roles)
   util.is_authorized(privileges)
-  msg = "allowed by sms.writer"
 }
 
