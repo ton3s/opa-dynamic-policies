@@ -34,7 +34,9 @@ Or if you prefer using `opa eval`:
 `opa test . -v`
 
 ```shell
-data.main_test.test_compute_allow: PASS (826.868µs)
+main_test.rego:
+data.main_test.test_sms_allow: PASS (2.465861ms)
+data.main_test.test_sms_deny: PASS (698.949µs)
 --------------------------------------------------------------------------------
-PASS: 1/1
+PASS: 2/2
 ```
